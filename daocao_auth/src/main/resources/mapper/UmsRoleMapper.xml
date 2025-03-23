@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daocao.auth.mapper.UmsRoleMapper">
+
+    <resultMap id="BaseResultMap" type="com.daocao.auth.domain.po.UmsRole">
+            <id property="roleId" column="role_id" />
+            <result property="roleLabel" column="role_label" />
+            <result property="roleName" column="role_name" />
+            <result property="sort" column="sort" />
+            <result property="status" column="status" />
+            <result property="deleted" column="deleted" />
+            <result property="remark" column="remark" />
+            <result property="creator" column="creator" />
+            <result property="updater" column="updater" />
+            <result property="createTime" column="create_time" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        role_id,role_label,role_name,sort,status,deleted,
+        remark,creator,updater,create_time,update_time
+    </sql>
+</mapper>

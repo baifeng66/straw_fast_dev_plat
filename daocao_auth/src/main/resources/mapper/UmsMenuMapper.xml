@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.daocao.auth.mapper.UmsMenuMapper">
+
+    <resultMap id="BaseResultMap" type="com.daocao.auth.domain.po.UmsMenu">
+            <id property="id" column="id" />
+            <result property="parentId" column="parent_id" />
+            <result property="menuName" column="menu_name" />
+            <result property="sort" column="sort" />
+            <result property="menuType" column="menu_type" />
+            <result property="path" column="path" />
+            <result property="componentPath" column="component_path" />
+            <result property="perms" column="perms" />
+            <result property="icon" column="icon" />
+            <result property="deleted" column="deleted" />
+            <result property="status" column="status" />
+            <result property="creator" column="creator" />
+            <result property="updater" column="updater" />
+            <result property="createTime" column="create_time" />
+            <result property="updateTime" column="update_time" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,parent_id,menu_name,sort,menu_type,path,
+        component_path,perms,icon,deleted,status,
+        creator,updater,create_time,update_time
+    </sql>
+</mapper>
