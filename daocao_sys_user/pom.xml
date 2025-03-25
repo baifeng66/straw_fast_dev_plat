@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.bf</groupId>
+        <groupId>com.daocao</groupId>
         <artifactId>daocao</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>daocao_sys_user</artifactId>
@@ -18,5 +18,12 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.daocao</groupId>
+            <artifactId>daocao_support</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

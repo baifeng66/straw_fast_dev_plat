@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.bf</groupId>
+    <groupId>com.daocao</groupId>
     <artifactId>daocao</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${daocao.version}</version>
     <description>父工程-定义依赖</description>
 
     <!--子模块-->
@@ -50,6 +50,11 @@
                 <version>${springboot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${springboot.version}</version>
             </dependency>
             <dependency>
                 <groupId>mysql</groupId>
@@ -126,29 +131,29 @@
 
             <!--外部maven模块-->
             <dependency>
-                <groupId>com.bf</groupId>
+                <groupId>com.daocao</groupId>
                 <artifactId>daocao_support</artifactId>
-                <version>${daocao.version}</version>
+                <version>1.0.0</version>
             </dependency>
             <dependency>
-                <groupId>com.bf</groupId>
+                <groupId>com.daocao</groupId>
                 <artifactId>daocao_common</artifactId>
                 <version>${daocao.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.bf</groupId>
+                <groupId>com.daocao</groupId>
                 <artifactId>daocao_auth</artifactId>
                 <version>${daocao.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.bf</groupId>
+                <groupId>com.daocao</groupId>
                 <artifactId>daocao_sys_user</artifactId>
                 <version>${daocao.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.bf</groupId>
+                <groupId>com.daocao</groupId>
                 <artifactId>daocao_starter</artifactId>
-                <version>1.0.0</version>
+                <version>${daocao.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -167,5 +172,30 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>public</id>
+            <name>aliyun nexus</name>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>
