@@ -1,16 +1,15 @@
 import { ElMessage } from 'element-plus'
 import router from '@/router/index.js'
 import axios from 'axios'
+import { getToken } from './token/index.js'
 // 封装 axios 请求
 const request = axios.create({
     baseURL: 'http://localhost:8066',
     // 配置请求接口跨域时是否需要凭证
     withCredentials: false,
-    timeout: 3000
+    timeout: 300000
 })
 
-// pinia 中获取 token
-let token = ''
 
 // 配置请求头
 axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
@@ -18,8 +17,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 // 配置请求拦截器
 request.interceptors.request.use(config => {
     // 在请求头添加token, 判断是否需要发送token
-    if (token) {
-        config.headers['Daocao-Authorization'] = token
+    if (getToken('daocao-token')) {
+        config.headers['Daocao-Authorization'] = getToken('daocao-token')
     }
     return config
 }, error => {//发生异常

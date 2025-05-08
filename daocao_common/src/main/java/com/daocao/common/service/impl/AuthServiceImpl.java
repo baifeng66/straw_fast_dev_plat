@@ -38,11 +38,11 @@ public class AuthServiceImpl implements IAuthService {
         // 尝试对传递的身份验证对象进行身份验证，如果成功，则返回一个完全填充的身份验证对象
         Authentication authenticate = authenticationManager.authenticate(authentication);
         // 获取用户信息(返回的是 UserDetails)
-        LoginUserVo loginUser = (LoginUserVo) authenticate.getPrincipal();
-        if (ObjectUtil.isNull(loginUser)) {
+        LoginUserVo loginUserVo = (LoginUserVo) authenticate.getPrincipal();
+        if (ObjectUtil.isNull(loginUserVo)) {
             throw new ServiceException(HttpStatus.UNAUTHORIZED, "认证失败");
         }
         // 生成token
-        return jwtUtil.createToken(loginUser);
+        return jwtUtil.createToken(loginUserVo);
     }
 }

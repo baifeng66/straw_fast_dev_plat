@@ -24,7 +24,9 @@ public class LoginUserVo implements UserDetails {
     private Long id;
     private String token;
     // 用户信息
-    private UmsSysUser umsSysUser;
+    private UmsSysUser umsSysUser = new UmsSysUser();
+    // 登录时间
+    private Long loginTime;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

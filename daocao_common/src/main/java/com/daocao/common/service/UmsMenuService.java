@@ -2,6 +2,9 @@ package com.daocao.common.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.daocao.common.domain.po.UmsMenu;
+import com.daocao.common.domain.vo.RouterVo;
+
+import java.util.List;
 
 /**
  * @author bf
@@ -10,4 +13,5 @@ import com.daocao.common.domain.po.UmsMenu;
  */
 public interface UmsMenuService extends IService<UmsMenu> {
 
+    List<RouterVo> searchSelfMenu();
 }

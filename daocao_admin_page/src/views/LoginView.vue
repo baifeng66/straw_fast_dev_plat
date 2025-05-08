@@ -55,8 +55,14 @@
 
 <script setup>
 import { ref } from 'vue'
-
+// 导入 api
 import { login } from '@/api/auth/index.js'
+import { searchSelfMenu } from '@/api/menu/index.js'
+// 导入 token 存储方法
+import { setToken } from '@/utils/token/index.js'
+// 导入 pinia 状态管理
+import { useMenuStore } from '@/stores/index.js'
+let menuStore = useMenuStore()
 
 const loginFormRef = ref()
 // 声明表单数据
@@ -81,9 +87,18 @@ function handleLogin() {
     login(login_form.value).then(res => {
         console.log(res)
         if (res.data.code == 200) {
-            //todo 存储 token 到 pinia
+            // 存储 token 到 pinia
             console.log('登录成功');
-
+            setToken("daocao-token", res.data.token)
+            //todo 查询用户权限和菜单【实现动态路由】
+            searchSelfMenu().then(res => {
+                console.log('res ==>', res)
+                if (res.data.code == 200) {
+                    menuStore.setMenuList(res.data.data)
+                }
+                // 跳转到首页
+                // router.push('/')
+            })
         }
     })
 }
